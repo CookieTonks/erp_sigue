@@ -53,9 +53,9 @@
                                 <tr>
                                     <td>
                                         <div style="width: -moz-max-content;width: max-content;">
-                                            <a href="" class="btn btn-primary btn-sm"> <i class="fa fa-file" aria-hidden="true"></i> </a>
+                                            <a href="{{route('formato_orden', $orden->id)}}" class="btn btn-primary btn-sm"> <i class="fa fa-file" aria-hidden="true"></i> </a>
                                             <a href="" class="btn btn-success btn-sm"> <i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                            <a href="" class="btn btn-danger btn-sm"> <i class="fa fa-trash" aria-hidden="true"></i></a>
+                                            <a href="{{route('borrar_orden', $orden->id)}}" class="btn btn-danger btn-sm"> <i class="fa fa-trash" aria-hidden="true"></i></a>
                                         </div>
                                     </td>
                                     <td>{{$orden->id}}</td>
@@ -102,6 +102,14 @@
                     <div class="form-group">
                         <label for="">Cantidad</label>
                         <input type="number" class="form-control" name="cantidad" id="cantidad" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="">F. Entrega</label>
+                        <input type="date" class="form-control" name="fecha_entrega" id="fecha_entrega" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Procesos</label>
+                        <input type="text" class="form-control" name="procesos" id="procesos" required>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
