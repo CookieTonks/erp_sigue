@@ -53,8 +53,8 @@
                                 <tr>
                                     <td>
                                         <div style="width: -moz-max-content;width: max-content;">
-                                            <a href="{{route('formato_orden', $orden->id)}}" class="btn btn-primary btn-sm"> <i class="fa fa-file" aria-hidden="true"></i> </a>
-                                            <a href="" class="btn btn-success btn-sm"> <i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                            <a href="{{route('formato_orden', $orden->id)}}" class="btn btn-secondary btn-sm"> <i class="fa fa-file" aria-hidden="true"></i> </a>
+                                            <a href="" class="btn btn-primary btn-sm"> <i class="fa fa-pencil" aria-hidden="true"></i></a>
                                             <a href="{{route('borrar_orden', $orden->id)}}" class="btn btn-danger btn-sm"> <i class="fa fa-trash" aria-hidden="true"></i></a>
                                         </div>
                                     </td>

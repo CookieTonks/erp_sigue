@@ -66,4 +66,5 @@ class ordenes_controller extends Controller
         $orden->delete();
         return back()->with('mensaje-success', '¡Orden de trabajo eliminada con exito!');
     }
+
 }

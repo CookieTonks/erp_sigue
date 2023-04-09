@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="../plantilla/assets/vendor/jquery-datatable/fixedeader/dataTables.fixedheader.bootstrap4.min.css">
     <link rel="stylesheet" href="../plantilla/assets/vendor/sweetalert/sweetalert.css" />
     <!-- MAIN CSS -->
-    <link rel="stylesheet" href="plantilla/assets/css/site.min.css">
+    <link rel="stylesheet" href="../plantilla/assets/css/site.min.css">
 
 </head>
 

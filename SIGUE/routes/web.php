@@ -31,3 +31,5 @@ Route::get('/borrar_orden/{id}', [App\Http\Controllers\ordenes_controller::class
 
 //Produccion
 Route::get('/dashboard_produccion', [App\Http\Controllers\produccion_controlador::class, 'dashboard_produccion'])->name('dashboard_produccion');
+Route::get('/edicion_produccion/{id}', [App\Http\Controllers\produccion_controlador::class, 'edicion_produccion'])->name('edicion_produccion');
+Route::post('/edicion_produccion/{id}', [App\Http\Controllers\produccion_controlador::class, 'edicion_produccion_post'])->name('edicion_produccion_post');
