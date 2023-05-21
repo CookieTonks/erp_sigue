@@ -1,4 +1,5 @@
 @extends('layouts.app')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <div id="main-content">
     <div class="block-header">
@@ -39,8 +40,6 @@
                             <tfoot>
                                 <tr>
                                     <th>
-
-
                                     </th>
                                     <th>OT</th>
                                     <th>Cliente</th>
@@ -54,8 +53,9 @@
                                     <td>
                                         <div style="width: -moz-max-content;width: max-content;">
                                             <a href="{{route('formato_orden', $orden->id)}}" class="btn btn-secondary btn-sm"> <i class="fa fa-file" aria-hidden="true"></i> </a>
-                                            <a href="" class="btn btn-primary btn-sm"> <i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                            <a href="{{route('mapeo_orden', $orden->id)}}" class="btn btn-secondary btn-sm"><i class="fa fa-list-ul" aria-hidden="true"></i></a>
                                             <a href="{{route('borrar_orden', $orden->id)}}" class="btn btn-danger btn-sm"> <i class="fa fa-trash" aria-hidden="true"></i></a>
+
                                         </div>
                                     </td>
                                     <td>{{$orden->id}}</td>
@@ -93,7 +93,12 @@
                     @csrf
                     <div class="form-group">
                         <label for="">Cliente</label>
-                        <input type="text" class="form-control" name="cliente" id="cliente" required>
+                        <select name="cliente" class="form-control custom-select d-block w-100" id="cliente">
+                            <option value="">Selecciona una opcion...</option>
+                            @foreach($clientes as $cliente)
+                            <option value="{$cliente->name}}">{{$cliente->name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="">Descripcion</label>
@@ -107,10 +112,29 @@
                         <label for="">F. Entrega</label>
                         <input type="date" class="form-control" name="fecha_entrega" id="fecha_entrega" required>
                     </div>
-                    <div class="form-group">
-                        <label for="">Procesos</label>
-                        <input type="text" class="form-control" name="procesos" id="procesos" required>
+                    <div class="container">
+                        <div class="row" id="proceso_dinamico">
+                            <div class="form-group form-horizontal">
+                                <label class="control-label">Tiempo por pieza</label>
+                                <div class="form-inline">
+                                    <select style="width:400px;" class="input-small form-control" id="proceso-selector" name="Proceso[]">
+                                        <option value="TORNEADO">TORNEADO</option>
+                                        <option value="FRESADO">FRESADO</option>
+                                        <option value="RECTIFICADO">RECTIFICADO</option>
+                                        <option value="CNC">CNC</option>
+                                        <option value="TORNO CNC">TORNO CNC</option>
+                                        <option value="CEPILLADO">CEPILLADO</option>
+                                        <option value="SOLDADURA">SOLDADURA</option>
+                                        <option value="PINTURA">PINTURA</option>
+                                        <option value="ENSAMBLE">ENSAMBLE</option>
+                                    </select>
+                                    <button style="margin-left:5px" type="button" class="btn btn-success btn-add" id="proceso_add"> <i class="fa fa-plus" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                         <button type="submit" class="btn btn-primary">Registrar</button>
@@ -121,3 +145,41 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    function getHTMLString() {
+        var complex_html = [
+            '<br>',
+            '<div class="form-inline">',
+            '<select style="width:400px;" class="input-small form-control" id="proceso-selector" name="Proceso[]">',
+            ' <option value="TORNEADO">TORNEADO</option>',
+            ' <option value="FRESADO">FRESADO</option>', ' <option value="RECTIFICADO">RECTIFICADO</option>',
+            '<option value="CNC">CNC</option>',
+            '<option value="TORNO CNC">TORNO CNC</option>',
+            '<option value="CEPILLADO">CEPILLADO</option>',
+            ' <option value="SOLDADURA">SOLDADURA</option>',
+            '<option value="PINTURA">PINTURA</option>',
+            '<option value="ENSAMBLE">ENSAMBLE</option>',
+            '</select> ',
+            '</div>',
+        ].join('');
+        return complex_html;
+    }
+
+    $(document).ready(function() {
+        var formCount = 0;
+        $("#proceso_add").on('click', function() {
+
+            if (formCount < 10) {
+                var html = getHTMLString();
+                var element = $(html);
+
+                $('#proceso_dinamico').append(html);
+                formCount++;
+            } else {
+                return;
+            }
+        });
+    });
+</script>

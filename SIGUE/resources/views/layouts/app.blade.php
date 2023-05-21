@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="../plantilla/assets/vendor/animate-css/vivify.min.css">
 
 
+
+
     <!-- Tablas -->
     <link rel="stylesheet" href="../plantilla/assets/vendor/jquery-datatable/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="../plantilla/assets/vendor/jquery-datatable/fixedeader/dataTables.fixedcolumns.bootstrap4.min.css">
@@ -92,29 +94,25 @@
                     <div class="tab-pane active" id="Home-icon">
                         <nav class="sidebar-nav sidebar-scroll">
                             <ul class="metismenu">
-                                <li><a href="index.html"><i class="icon-speedometer"></i><span>Dashboard</span></a></li>
+                                <li><a href="{{route('home')}}"><i class="icon-speedometer"></i><span>Dashboard</span></a></li>
                                 <li class="header">Modulo Ordenes</li>
-                                <li class=""><a href="app-campaign.html"><i class="icon-paper-plane"></i><span>Ordenes</span></a></li>
-                                <li><a href="app-chat.html"><i class="icon-bubbles"></i><span>Clientes</span></a></li>
-                                <li><a href="app-calendar.html"><i class="icon-calendar"></i><span>Vendedores</span></a></li>
-                                <li><a href="app-contact.html"><i class="icon-book-open"></i><span>Buscador</span></a></li>
+                                <li class=""><a href="{{route('dashboard_ordenes')}}"><i class="icon-paper-plane"></i><span>Ordenes</span></a></li>
+
+                                <li><a href="{{route('buscador_ordenes')}}"><i class="icon-book-open"></i><span>Buscador</span></a></li>
                             </ul>
                             <ul class="metismenu">
                                 <li class="header">Modulo Produccion</li>
-                                <li class=""><a href="app-campaign.html"><i class="icon-paper-plane"></i><span>Ordenes</span></a></li>
-                                <li><a href="app-chat.html"><i class="icon-bubbles"></i><span>Programadores</span></a></li>
-                                <li><a href="app-calendar.html"><i class="icon-calendar"></i><span>Calendario</span></a></li>
-                                <li><a href="app-contact.html"><i class="icon-book-open"></i><span>Buscador</span></a></li>
+                                <li class=""><a href="{{route('dashboard_produccion')}}"><i class="icon-paper-plane"></i><span>Programacion</span></a></li>
+                                <li><a href="{{route('dashboard_tecnico')}}"><i class="icon-bubbles"></i><span>Tecnicos</span></a></li>
+                                <li><a href="{{route('buscador_produccion')}}"><i class="icon-book-open"></i><span>Buscador</span></a></li>
                             </ul>
                             <ul class="metismenu">
                                 <li class="header">Modulo Administrador</li>
-                                <li class=""><a href="app-campaign.html"><i class="icon-paper-plane"></i><span>Ordenes</span></a></li>
-                                <li><a href="app-chat.html"><i class="icon-bubbles"></i><span>Calendario</span></a></li>
-                                <li><a href="app-calendar.html"><i class="icon-calendar"></i><span>Progreso de trabajo</span></a></li>
+                                <li><a href="{{route('dashboard_administrador')}}"><i class="icon-bubbles"></i><span>Administrador</span></a></li>
                             </ul>
                         </nav>
                     </div>
-                   
+
                 </div>
             </div>
         </div>

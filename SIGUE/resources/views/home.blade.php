@@ -36,7 +36,7 @@
                         <div class="text-center"><i class="fa fa-cogs" aria-hidden="true"></i>
                             <h5 class="m-t-20 mb-0">Produccion</h5>
                             <p class="text-muted"></p>
-                            <a href="javascript:void(0);" class="btn btn-success btn-round">Ingresar</a>
+                            <a href="{{route('dashboard_produccion')}}" class="btn btn-success btn-round">Ingresar</a>
                         </div>
                     </div>
                 </div>
